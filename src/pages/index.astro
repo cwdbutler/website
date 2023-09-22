@@ -1,5 +1,11 @@
 ---
 import Hero from "../components/hero";
+import { contentfulClient } from "../lib/contentful";
+import type { TypeHeroSkeleton } from "../types/contentful";
+
+const hero = await contentfulClient.getEntry<TypeHeroSkeleton>(
+  "A2bjazM1xNJBTjL8bbpaC"
+);
 ---
 
 <style>
@@ -18,6 +24,18 @@ import Hero from "../components/hero";
     <title>Conor Butler | Softare Developer | London, UK</title>
   </head>
   <body>
-    <Hero title="Title" subtitle="Subtitle" />
+    <Hero
+      {...hero.fields}
+      links={hero.fields.links.map((linkData) => {
+        const {
+          fields: { icon, ...rest },
+        } = linkData!;
+        return {
+          ...rest,
+          iconUrl: linkData?.fields.icon?.fields.file?.url || "",
+          iconLabel: linkData?.fields.icon?.fields.title || "",
+        };
+      })}
+    />
   </body>
 </html>
