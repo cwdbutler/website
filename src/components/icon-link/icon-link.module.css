@@ -1,0 +1,14 @@
+.link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  filter: invert(74%) sepia(16%) saturate(321%) hue-rotate(180deg)
+    brightness(97%) contrast(85%);
+  margin-right: 0.5rem;
+  height: 40px;
+  width: 40px;
+}
