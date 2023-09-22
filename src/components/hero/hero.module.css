@@ -27,4 +27,11 @@
 
 .link {
   list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.spacer {
+  margin: 0 1rem;
+  font-size: 2rem;
 }

@@ -14,9 +14,12 @@ const Hero = ({ title, subtitle, links }: HeroProps) => {
       <h1 className={styles.title}>{title}</h1>
       <p className={styles.subtitle}>{subtitle}</p>
       <ul className={styles.links}>
-        {links.map((linkProps) => (
+        {links.map((linkProps, index) => (
           <li className={styles.link} key={linkProps.text}>
             <IconLink {...linkProps} key={linkProps.text} isNewTab />
+            {index !== links.length - 1 && (
+              <span className={styles.spacer}>/</span>
+            )}
           </li>
         ))}
       </ul>
