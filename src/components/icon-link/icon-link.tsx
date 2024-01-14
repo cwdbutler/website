@@ -20,12 +20,12 @@ const IconLink = ({
       href={href}
       target={isNewTab ? "_blank" : undefined}
       aria-label={text}
-      className="group flex items-center transition ease-in-out hover:text-white"
+      className="group font-sans text-[#6B7380] flex flex-col sm:flex-row items-center transition-all duration-300 ease-in-out hover:text-inherit text-xs sm:text-xl"
     >
       <img
         src={iconUrl}
         alt={iconLabel}
-        className="size-5 mr-1 transition ease-in-out [filter:invert(87%)_sepia(3%)_saturate(3080%)_hue-rotate(188deg)_brightness(88%)_contrast(78%)] group-hover:[filter:invert(99%)_sepia(39%)_saturate(220%)_hue-rotate(213deg)_brightness(121%)_contrast(100%)]"
+        className="size-10 sm:size-6 sm:mr-1 transition duration-300 ease-in-out [filter:invert(87%)_sepia(3%)_saturate(3080%)_hue-rotate(188deg)_brightness(50%)_contrast(78%)] group-hover:[filter:invert(87%)_sepia(3%)_saturate(3080%)_hue-rotate(188deg)_brightness(88%)_contrast(78%)]"
       />
       {text}
     </a>
