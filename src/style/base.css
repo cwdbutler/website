@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Roboto Mono", Menlo, Monaco, Courier, monospace;
+    background-color: #2e343b;
+    color: #aab6cc;
+  }
+}
