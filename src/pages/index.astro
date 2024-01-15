@@ -1,12 +1,14 @@
 ---
 import Hero from "../components/hero";
 import { contentfulClient } from "../lib/contentful";
-import type { TypeHeroSkeleton } from "../types/contentful";
+import { isTypeHero, isTypeList } from "../types/contentful";
+import type { TypePageSkeleton } from "../types/contentful";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/fira-code";
 
-const hero = await contentfulClient.getEntry<TypeHeroSkeleton>(
-  "A2bjazM1xNJBTjL8bbpaC"
+const page = await contentfulClient.getEntry<TypePageSkeleton>(
+  "1GaXnCzWwz8gVnTNWQcB4I",
+  { include: 2 }
 );
 ---
 
@@ -33,18 +35,32 @@ const hero = await contentfulClient.getEntry<TypeHeroSkeleton>(
     <title>Conor Butler | Softare Developer | London, UK</title>
   </head>
   <body>
-    <Hero
-      {...hero.fields}
-      links={hero.fields.links.map((linkData) => {
-        const {
-          fields: { icon, ...rest },
-        } = linkData!;
-        return {
-          ...rest,
-          iconUrl: linkData?.fields.icon?.fields.file?.url || "",
-          iconLabel: linkData?.fields.icon?.fields.title || "",
-        };
-      })}
-    />
+    {
+      page.fields.sections.map((section) => {
+        if (isTypeHero(section!)) {
+          const { title, subtitle, links } = section.fields;
+          return (
+            <Hero
+              title={title}
+              subtitle={subtitle}
+              links={links.map((linkData) => {
+                const {
+                  fields: { icon, ...rest },
+                } = linkData!;
+                return {
+                  ...rest,
+                  iconUrl: icon?.fields.file?.url!,
+                  iconLabel: icon?.fields.title!,
+                };
+              })}
+            />
+          );
+        }
+        if (isTypeList(section!)) {
+          const { title, items } = section.fields;
+          return <div>{title}</div>;
+        }
+      })
+    }
   </body>
 </html>

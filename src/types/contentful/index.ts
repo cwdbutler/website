@@ -1,2 +1,10 @@
+export { isTypeHero } from "./TypeHero";
 export type { TypeHero, TypeHeroFields, TypeHeroSkeleton } from "./TypeHero";
+export { isTypeIconLink } from "./TypeIconLink";
 export type { TypeIconLink, TypeIconLinkFields, TypeIconLinkSkeleton } from "./TypeIconLink";
+export { isTypeList } from "./TypeList";
+export type { TypeList, TypeListFields, TypeListSkeleton } from "./TypeList";
+export { isTypeListItem } from "./TypeListItem";
+export type { TypeListItem, TypeListItemFields, TypeListItemSkeleton } from "./TypeListItem";
+export { isTypePage } from "./TypePage";
+export type { TypePage, TypePageFields, TypePageSkeleton } from "./TypePage";

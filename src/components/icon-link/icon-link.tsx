@@ -1,5 +1,3 @@
-import type { ReactElement, ReactNode } from "react";
-
 export interface IconLinkProps {
   iconUrl: string;
   iconLabel?: string;
