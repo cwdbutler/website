@@ -2,13 +2,28 @@
 import Hero from "../components/hero";
 import { contentfulClient } from "../lib/contentful";
 import type { TypeHeroSkeleton } from "../types/contentful";
-import "../style/base.css";
+import "@fontsource-variable/inter";
+import "@fontsource-variable/fira-code";
 
 const hero = await contentfulClient.getEntry<TypeHeroSkeleton>(
   "A2bjazM1xNJBTjL8bbpaC"
 );
 ---
 
+<style is:global>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  @layer base {
+    html {
+      font-family: "Fira Code Variable", "Roboto Mono", Menlo, Monaco, Courier,
+        monospace;
+      background-color: #2e343b;
+      color: #aab6cc;
+    }
+  }
+</style>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
