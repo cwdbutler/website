@@ -3,6 +3,7 @@ import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleC
 export interface TypeListItemFields {
     icon?: EntryFieldTypes.AssetLink;
     text: EntryFieldTypes.RichText;
+    name?: EntryFieldTypes.Symbol;
 }
 
 export type TypeListItemSkeleton = EntrySkeletonType<TypeListItemFields, "listItem">;
