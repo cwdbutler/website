@@ -8,7 +8,7 @@ import "@fontsource-variable/fira-code";
 
 const page = await contentfulClient.getEntry<TypePageSkeleton>(
   "1GaXnCzWwz8gVnTNWQcB4I",
-  { include: 2 }
+  { include: 2 },
 );
 ---
 
@@ -49,15 +49,15 @@ const page = await contentfulClient.getEntry<TypePageSkeleton>(
                 } = linkData!;
                 return {
                   ...rest,
-                  iconUrl: icon?.fields.file?.url!,
-                  iconLabel: icon?.fields.title!,
+                  iconUrl: icon?.fields.file?.url || "",
+                  iconLabel: icon?.fields.title || "",
                 };
               })}
             />
           );
         }
         if (isTypeList(section!)) {
-          const { title, items } = section.fields;
+          const { title } = section.fields;
           return <div>{title}</div>;
         }
       })
