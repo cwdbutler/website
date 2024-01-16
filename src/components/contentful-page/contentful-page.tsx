@@ -42,6 +42,7 @@ const ContentfulPage = ({ sections }: ContentfulPageProps) =>
     if (isTypeList(section)) {
       const { title, items } = section.fields;
       const itemFields = items.map((item) => item?.fields as ListItemProps);
+
       return (
         <div key={section.sys.id}>
           <List title={title} items={itemFields} />
