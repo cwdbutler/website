@@ -1,9 +1,10 @@
 import type { Entry } from "contentful";
 import type { TypePageSkeleton } from "../../types/contentful";
-import { isTypeHero, isTypeList } from "../../types/contentful";
+import { isTypeHero, isTypeList, isTypeRichText } from "../../types/contentful";
 import type { ListItemProps } from "../list-item";
 import { Hero } from "../hero";
 import { List } from "../list";
+import { RichText } from "../rich-text";
 
 interface ContentfulPageProps {
   sections: Entry<
@@ -47,6 +48,12 @@ const ContentfulPage = ({ sections }: ContentfulPageProps) =>
           <List title={title} items={itemFields} />
         </div>
       );
+    }
+
+    if (isTypeRichText(section)) {
+      const { text } = section.fields;
+
+      return <RichText key={section.sys.id} text={text} />;
     }
   });
 

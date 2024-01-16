@@ -8,3 +8,5 @@ export { isTypeListItem } from "./TypeListItem";
 export type { TypeListItem, TypeListItemFields, TypeListItemSkeleton } from "./TypeListItem";
 export { isTypePage } from "./TypePage";
 export type { TypePage, TypePageFields, TypePageSkeleton } from "./TypePage";
+export { isTypeRichText } from "./TypeRichText";
+export type { TypeRichText, TypeRichTextFields, TypeRichTextSkeleton } from "./TypeRichText";

@@ -1,10 +1,11 @@
 import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleCode } from "contentful";
 import type { TypeHeroSkeleton } from "./TypeHero";
 import type { TypeListSkeleton } from "./TypeList";
+import type { TypeRichTextSkeleton } from "./TypeRichText";
 
 export interface TypePageFields {
     slug: EntryFieldTypes.Symbol;
-    sections: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeHeroSkeleton | TypeListSkeleton>>;
+    sections: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeHeroSkeleton | TypeListSkeleton | TypeRichTextSkeleton>>;
 }
 
 export type TypePageSkeleton = EntrySkeletonType<TypePageFields, "page">;

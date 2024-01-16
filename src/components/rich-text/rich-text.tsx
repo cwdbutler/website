@@ -1,11 +1,9 @@
 import type { Document as RichTextDocument } from "@contentful/rich-text-types";
-import type { Asset } from "contentful";
 import { INLINES } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import type { Options } from "@contentful/rich-text-react-renderer";
 
-export interface ListItemProps {
-  icon: Asset;
+interface RichTextProps {
   text: RichTextDocument;
 }
 
@@ -21,16 +19,7 @@ const options: Options = {
   },
 };
 
-export const ListItem = ({ icon, text }: ListItemProps) => {
+export const RichText = ({ text }: RichTextProps) => {
   const Text = documentToReactComponents(text, options);
-  return (
-    <li className="items-center space-x-2 text-xs inline-flex">
-      <img
-        className="flex-shrink-0 w-6 h-6"
-        src={icon.fields.file?.url?.toString()}
-        alt={icon.fields.title?.toString()}
-      />
-      {Text}
-    </li>
-  );
+  return Text;
 };
