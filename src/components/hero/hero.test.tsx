@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Hero from ".";
+import { Hero } from ".";
 
 const link1 = {
   iconUrl: "example.png",
@@ -23,7 +23,7 @@ describe("Hero", () => {
     render(<Hero {...requiredProps} />);
 
     expect(
-      screen.getByRole("heading", { level: 1, name: requiredProps.title })
+      screen.getByRole("heading", { level: 1, name: requiredProps.title }),
     ).toBeVisible();
     expect(screen.getByText(requiredProps.subtitle)).toBeVisible();
   });

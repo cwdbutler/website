@@ -1,6 +1,6 @@
 import { Fragment } from "react";
-import type { IconLinkProps } from "../icon-link/icon-link";
-import IconLink from "../icon-link/icon-link";
+import type { IconLinkProps } from "../icon-link";
+import { IconLink } from "../icon-link";
 
 interface HeroProps {
   title: string;
@@ -8,9 +8,9 @@ interface HeroProps {
   links: IconLinkProps[];
 }
 
-const Hero = ({ title, subtitle, links }: HeroProps) => {
+export const Hero = ({ title, subtitle, links }: HeroProps) => {
   return (
-    <section className="transition-all bg-gradient-to-b from-gray-900 py-16 sm:py-32 ">
+    <section className="transition-all bg-gradient-to-b from-gray-900 pt-16 mb-10 sm:py-32 ">
       <div className="w-full px-4 flex flex-col items-center justify-center text-center max-w-[640px] mx-auto">
         <h1 className="text-4xl sm:text-5xl">
           {title}
@@ -40,5 +40,3 @@ const Hero = ({ title, subtitle, links }: HeroProps) => {
     </section>
   );
 };
-
-export default Hero;

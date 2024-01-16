@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import IconLink from ".";
+import { IconLink } from ".";
 
 const requiredProps = {
   iconUrl: "example.png",
@@ -12,7 +12,7 @@ describe("IconLink", () => {
     render(<IconLink {...requiredProps} />);
 
     expect(
-      screen.getByRole("link", { name: requiredProps.text })
+      screen.getByRole("link", { name: requiredProps.text }),
     ).toBeVisible();
     expect(screen.getByRole("img", { name: "" })).toBeVisible();
   });

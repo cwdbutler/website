@@ -1,10 +1,9 @@
 import type { Entry } from "contentful";
 import type { TypePageSkeleton } from "../../types/contentful";
 import { isTypeHero, isTypeList } from "../../types/contentful";
-
-import Hero from "../hero";
-import List from "../list/list";
-import type { ListItemProps } from "../list-item/list-item";
+import type { ListItemProps } from "../list-item";
+import { Hero } from "../hero";
+import { List } from "../list";
 
 interface ContentfulPageProps {
   sections: Entry<

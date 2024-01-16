@@ -1,11 +1,12 @@
-import { ListItem, type ListItemProps } from "../list-item/list-item";
+import { ListItem } from "../list-item";
+import type { ListItemProps } from "../list-item/list-item";
 
 interface ListProps {
   title: string;
   items: ListItemProps[];
 }
 
-const List = ({ title, items }: ListProps) => (
+export const List = ({ title, items }: ListProps) => (
   <div className="px-5">
     <h3 className="font-semibold">{title}</h3>
     <ul className="grid auto-rows-fr">
@@ -15,5 +16,3 @@ const List = ({ title, items }: ListProps) => (
     </ul>
   </div>
 );
-
-export default List;

@@ -6,7 +6,7 @@ export interface IconLinkProps {
   isNewTab?: boolean;
 }
 
-const IconLink = ({
+export const IconLink = ({
   iconUrl,
   iconLabel,
   href,
@@ -29,5 +29,3 @@ const IconLink = ({
     </a>
   );
 };
-
-export default IconLink;
