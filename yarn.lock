@@ -441,6 +441,13 @@
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
   integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
 
+"@contentful/rich-text-react-renderer@^15.19.0":
+  version "15.19.0"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-react-renderer/-/rich-text-react-renderer-15.19.0.tgz#9aa9f485170354cea6bbef5d63e0118b84f58c96"
+  integrity sha512-2lFDmoWocUXNxk+yvHNSUIgdhm7FCyE57KjYxuTnoC8R2nPVY+mC0I2c0aTOcP4CX/2QqZe/FAoospjU6nk1uw==
+  dependencies:
+    "@contentful/rich-text-types" "^16.3.0"
+
 "@contentful/rich-text-types@^16.0.2", "@contentful/rich-text-types@^16.3.0":
   version "16.3.0"
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-16.3.0.tgz#d44145a43b32d61eb4d6a82d3001cdfddbbda42e"
@@ -2436,9 +2443,9 @@ contentful-management@^10.40.1:
     type-fest "^4.0.0"
 
 contentful-management@^11.0.1:
-  version "11.12.0"
-  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-11.12.0.tgz#62d18db9e0728954ebd7fcbc4e97f98fa6a73f66"
-  integrity sha512-2ptAIH0ITHUDSS2GQLoaxMHdpkzq99Vctarl5RbaHQ1rxty3m2+cmabVBGQca3CeXYQmwCyUiZhbAtDtsU2q+A==
+  version "11.12.1"
+  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-11.12.1.tgz#34eb0e9f2e5da8e16165152c57c36388c28de940"
+  integrity sha512-1xxBoz31DAuGCEZN9/e7MKrrxitFXxD067xYNtBJ3lvwhhsdb9mVJ+QKNHR5Ys+ZfYOlLq6dDnRBf15KeUXggA==
   dependencies:
     "@contentful/rich-text-types" "^16.3.0"
     "@types/json-patch" "0.0.30"
@@ -2747,9 +2754,9 @@ ejs@^3.1.9:
     jake "^10.8.5"
 
 electron-to-chromium@^1.4.601:
-  version "1.4.630"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.630.tgz#1d9f4169653784997bec98975e11a2c05214ce39"
-  integrity sha512-osHqhtjojpCsACVnuD11xO5g9xaCyw7Qqn/C2KParkMv42i8jrJJgx3g7mkHfpxwhy9MnOJr8+pKOdZ7qzgizg==
+  version "1.4.631"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.631.tgz#db2de2e1ce90fc1785b5c3f49fde594413270e05"
+  integrity sha512-g73CJB/rMPjdxpiNJYmV1homV7mLVUNe/R0z/HhqMfpjkt58FpYmkTjbtuv3zymdbTTJ+VOEqe1c+lkTjSOhmQ==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"

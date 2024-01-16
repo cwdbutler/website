@@ -3,6 +3,8 @@ import type { TypePageSkeleton } from "../../types/contentful";
 import { isTypeHero, isTypeList } from "../../types/contentful";
 
 import Hero from "../hero";
+import List from "../list/list";
+import type { ListItemProps } from "../list-item/list-item";
 
 interface ContentfulPageProps {
   sections: Entry<
@@ -39,15 +41,10 @@ const ContentfulPage = ({ sections }: ContentfulPageProps) =>
 
     if (isTypeList(section)) {
       const { title, items } = section.fields;
-
+      const itemFields = items.map((item) => item?.fields as ListItemProps);
       return (
         <div key={section.sys.id}>
-          <div>{title}</div>
-          {items.map((item) => (
-            <pre key={item?.sys.id}>
-              {JSON.stringify(item?.fields.text, null, 2)}
-            </pre>
-          ))}
+          <List title={title} items={itemFields} />
         </div>
       );
     }
