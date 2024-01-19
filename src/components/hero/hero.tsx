@@ -10,7 +10,7 @@ interface HeroProps {
 
 export const Hero = ({ title, subtitle, links }: HeroProps) => {
   return (
-    <div className="w-full flex flex-col items-center justify-center text-center mx-auto">
+    <div className="transition-all w-full flex flex-col items-center justify-center text-center mx-auto">
       <h1 className="text-4xl sm:text-5xl">
         {title}
         <span aria-hidden="true" className="text-4xl animate-pulse select-none">

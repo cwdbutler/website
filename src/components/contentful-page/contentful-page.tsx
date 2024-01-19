@@ -22,13 +22,13 @@ const Section = ({
   isHero?: boolean;
 }) => {
   return isHero ? (
-    <div className="bg-gradient-to-b from-gray-900">
-      <section className="transition-all pt-16 sm:pt-32 sm:mb-20 max-w-2xl mx-auto px-4">
+    <section className="bg-gradient-to-b from-gray-900">
+      <div className="pt-16 sm:pt-32 sm:mb-20 max-w-2xl mx-auto px-4">
         {children}
-      </section>
-    </div>
+      </div>
+    </section>
   ) : (
-    <section className="transition-all max-w-5xl mx-auto px-4 mt-10 text-sm">
+    <section className="max-w-5xl mx-auto px-4 mt-10 text-sm">
       {children}
     </section>
   );
