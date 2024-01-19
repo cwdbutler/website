@@ -1,3 +1,1 @@
-import ContentfulPage from "./contentful-page";
-
-export default ContentfulPage;
+export * from "./contentful-page";

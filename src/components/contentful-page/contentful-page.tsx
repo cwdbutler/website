@@ -5,6 +5,7 @@ import type { ListItemProps } from "../list-item";
 import { Hero } from "../hero";
 import { List } from "../list";
 import { RichText } from "../rich-text";
+import type { ReactNode } from "react";
 
 interface ContentfulPageProps {
   sections: Entry<
@@ -13,48 +14,74 @@ interface ContentfulPageProps {
   >["fields"]["sections"];
 }
 
-const ContentfulPage = ({ sections }: ContentfulPageProps) =>
-  sections.map((section) => {
-    if (!section) return;
+const Section = ({
+  children,
+  isHero,
+}: {
+  children: ReactNode;
+  isHero?: boolean;
+}) => {
+  return isHero ? (
+    <div className="bg-gradient-to-b from-gray-900">
+      <section className="transition-all pt-16 sm:pt-32 sm:mb-20 max-w-2xl mx-auto px-4">
+        {children}
+      </section>
+    </div>
+  ) : (
+    <section className="transition-all max-w-5xl mx-auto px-4 mt-10 text-sm">
+      {children}
+    </section>
+  );
+};
 
-    if (isTypeHero(section)) {
-      const { title, subtitle, links } = section.fields;
+export const ContentfulPage = ({ sections }: ContentfulPageProps) => (
+  <main>
+    {sections.map((section) => {
+      if (!section) return;
 
-      return (
-        <Hero
-          key={section.sys.id}
-          title={title}
-          subtitle={subtitle}
-          links={links.map((linkData) => {
-            const {
-              fields: { icon, ...rest },
-            } = linkData!;
-            return {
-              ...rest,
-              iconUrl: icon?.fields.file?.url || "",
-              iconLabel: icon?.fields.title || "",
-            };
-          })}
-        />
-      );
-    }
+      if (isTypeHero(section)) {
+        const { title, subtitle, links } = section.fields;
 
-    if (isTypeList(section)) {
-      const { title, items } = section.fields;
-      const itemFields = items.map((item) => item?.fields as ListItemProps);
+        return (
+          <Section isHero key={section.sys.id}>
+            <Hero
+              title={title}
+              subtitle={subtitle}
+              links={links.map((linkData) => {
+                const {
+                  fields: { icon, ...rest },
+                } = linkData!;
+                return {
+                  ...rest,
+                  iconUrl: icon?.fields.file?.url || "",
+                  iconLabel: icon?.fields.title || "",
+                };
+              })}
+            />
+          </Section>
+        );
+      }
 
-      return (
-        <div key={section.sys.id}>
-          <List title={title} items={itemFields} />
-        </div>
-      );
-    }
+      if (isTypeList(section)) {
+        const { title, items } = section.fields;
+        const itemFields = items.map((item) => item?.fields as ListItemProps);
 
-    if (isTypeRichText(section)) {
-      const { text } = section.fields;
+        return (
+          <Section key={section.sys.id}>
+            <List title={title} items={itemFields} />
+          </Section>
+        );
+      }
 
-      return <RichText key={section.sys.id} text={text} />;
-    }
-  });
+      if (isTypeRichText(section)) {
+        const { text } = section.fields;
 
-export default ContentfulPage;
+        return (
+          <Section key={section.sys.id}>
+            <RichText text={text} />
+          </Section>
+        );
+      }
+    })}
+  </main>
+);
