@@ -1,9 +1,9 @@
 import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleCode } from "contentful";
 
 export interface TypeListItemFields {
+    name: EntryFieldTypes.Symbol;
     icon: EntryFieldTypes.AssetLink;
     text: EntryFieldTypes.RichText;
-    name?: EntryFieldTypes.Symbol;
 }
 
 export type TypeListItemSkeleton = EntrySkeletonType<TypeListItemFields, "listItem">;

@@ -69,7 +69,16 @@ export const ContentfulPage = ({ sections }: ContentfulPageProps) => (
 
       if (isTypeList(section)) {
         const { title, items } = section.fields;
-        const itemFields = items.map((item) => item?.fields as ListItemProps);
+        const itemFields = items.map((item) => {
+          return {
+            text: item?.fields.text,
+            textLabel: item?.fields.name,
+            icon: {
+              url: item?.fields.icon?.fields.file?.url,
+              title: item?.fields.icon?.fields.title,
+            },
+          } as ListItemProps;
+        });
 
         return (
           <Section key={section.sys.id} title={title}>
