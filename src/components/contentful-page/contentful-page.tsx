@@ -6,6 +6,7 @@ import { Hero } from "../hero";
 import { List } from "../list";
 import { RichText } from "../rich-text";
 import type { ReactNode } from "react";
+import React from "react";
 
 interface ContentfulPageProps {
   sections: Entry<
@@ -14,88 +15,99 @@ interface ContentfulPageProps {
   >["fields"]["sections"];
 }
 
-type SectionProps = { isHero?: boolean; title?: string };
-
-type HeroSectionProps = { isHero: true; title?: never };
-
-const Section = ({
-  children,
-  isHero,
-  title,
-}: {
+interface SectionProps {
   children: ReactNode;
-} & (SectionProps | HeroSectionProps)) => {
-  return isHero ? (
-    <section className="bg-gradient-to-b from-gray-900">
-      <div className="pt-16 sm:pt-32 sm:mb-20 max-w-2xl mx-auto px-4">
-        {children}
-      </div>
-    </section>
-  ) : (
-    <section className="max-w-5xl mx-auto px-4 mt-10 text-sm">
-      <h2 className="font-semibold text-xl text-pink-400 mb-1">{title}</h2>
-      {children}
-    </section>
-  );
+  type?: "HERO" | "FOOTER";
+  title?: string;
+}
+
+const Section = ({ children, type, title }: SectionProps) => {
+  switch (type) {
+    case "HERO":
+      return (
+        <section className="bg-gradient-to-b from-gray-900">
+          <div className="pt-16 sm:pt-32 sm:mb-20 max-w-2xl mx-auto px-4">
+            {children}
+          </div>
+        </section>
+      );
+    case "FOOTER":
+      return (
+        <footer className="text-center text-xs mt-20 mb-4">{children}</footer>
+      );
+    default:
+      return (
+        <section className="max-w-5xl mx-auto px-4 mt-10 text-sm">
+          <h2 className="font-semibold text-xl text-pink-400 mb-1">{title}</h2>
+          {children}
+        </section>
+      );
+  }
 };
 
 export const ContentfulPage = ({ sections }: ContentfulPageProps) => (
-  <main>
-    {sections.map((section) => {
-      if (!section) return;
+  <React.Fragment>
+    <main>
+      {sections.map((section) => {
+        if (!section) return;
 
-      if (isTypeHero(section)) {
-        const { title, subtitle, links } = section.fields;
+        if (isTypeHero(section)) {
+          const { title, subtitle, links } = section.fields;
 
-        return (
-          <Section isHero key={section.sys.id}>
-            <Hero
+          return (
+            <Section key={section.sys.id} type="HERO">
+              <Hero
+                title={title}
+                subtitle={subtitle}
+                links={links.map((linkData) => {
+                  const {
+                    fields: { icon, ...rest },
+                  } = linkData!;
+                  return {
+                    ...rest,
+                    iconUrl: icon?.fields.file?.url || "",
+                    iconLabel: icon?.fields.title || "",
+                  };
+                })}
+              />
+            </Section>
+          );
+        }
+
+        if (isTypeList(section)) {
+          const { title, items } = section.fields;
+          const itemFields = items.map((item) => {
+            return {
+              text: item?.fields.text,
+              textLabel: item?.fields.name,
+              icon: {
+                url: item?.fields.icon?.fields.file?.url,
+                title: item?.fields.icon?.fields.title,
+              },
+            } as ListItemProps;
+          });
+
+          return (
+            <Section key={section.sys.id} title={title}>
+              <List items={itemFields} />
+            </Section>
+          );
+        }
+
+        if (isTypeRichText(section)) {
+          const { title, text, displayName } = section.fields;
+
+          return (
+            <Section
+              key={section.sys.id}
               title={title}
-              subtitle={subtitle}
-              links={links.map((linkData) => {
-                const {
-                  fields: { icon, ...rest },
-                } = linkData!;
-                return {
-                  ...rest,
-                  iconUrl: icon?.fields.file?.url || "",
-                  iconLabel: icon?.fields.title || "",
-                };
-              })}
-            />
-          </Section>
-        );
-      }
-
-      if (isTypeList(section)) {
-        const { title, items } = section.fields;
-        const itemFields = items.map((item) => {
-          return {
-            text: item?.fields.text,
-            textLabel: item?.fields.name,
-            icon: {
-              url: item?.fields.icon?.fields.file?.url,
-              title: item?.fields.icon?.fields.title,
-            },
-          } as ListItemProps;
-        });
-
-        return (
-          <Section key={section.sys.id} title={title}>
-            <List items={itemFields} />
-          </Section>
-        );
-      }
-
-      if (isTypeRichText(section)) {
-        const { title, text } = section.fields;
-
-        return (
-          <Section key={section.sys.id} title={title}>
-            <RichText text={text} />
-          </Section>
-        );
-      }
-    })}
-  </main>
+              type={displayName === "Footer" ? "FOOTER" : undefined}
+            >
+              <RichText text={text} />
+            </Section>
+          );
+        }
+      })}
+    </main>
+  </React.Fragment>
 );
