@@ -2,7 +2,8 @@ import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleC
 import type { TypeListItemSkeleton } from "./TypeListItem";
 
 export interface TypeListFields {
-    title: EntryFieldTypes.Symbol;
+    displayName?: EntryFieldTypes.Symbol;
+    title?: EntryFieldTypes.Symbol;
     items: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeListItemSkeleton>>;
 }
 

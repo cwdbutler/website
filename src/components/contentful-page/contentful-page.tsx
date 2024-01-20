@@ -14,13 +14,17 @@ interface ContentfulPageProps {
   >["fields"]["sections"];
 }
 
+type SectionProps = { isHero?: boolean; title?: string };
+
+type HeroSectionProps = { isHero: true; title?: never };
+
 const Section = ({
   children,
   isHero,
+  title,
 }: {
   children: ReactNode;
-  isHero?: boolean;
-}) => {
+} & (SectionProps | HeroSectionProps)) => {
   return isHero ? (
     <section className="bg-gradient-to-b from-gray-900">
       <div className="pt-16 sm:pt-32 sm:mb-20 max-w-2xl mx-auto px-4">
@@ -29,6 +33,7 @@ const Section = ({
     </section>
   ) : (
     <section className="max-w-5xl mx-auto px-4 mt-10 text-sm">
+      <h2 className="font-semibold text-xl text-pink-400">{title}</h2>
       {children}
     </section>
   );
@@ -67,17 +72,17 @@ export const ContentfulPage = ({ sections }: ContentfulPageProps) => (
         const itemFields = items.map((item) => item?.fields as ListItemProps);
 
         return (
-          <Section key={section.sys.id}>
-            <List title={title} items={itemFields} />
+          <Section key={section.sys.id} title={title}>
+            <List items={itemFields} />
           </Section>
         );
       }
 
       if (isTypeRichText(section)) {
-        const { text } = section.fields;
+        const { title, text } = section.fields;
 
         return (
-          <Section key={section.sys.id}>
+          <Section key={section.sys.id} title={title}>
             <RichText text={text} />
           </Section>
         );

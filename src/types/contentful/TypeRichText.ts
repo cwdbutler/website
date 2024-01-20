@@ -1,8 +1,9 @@
 import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleCode } from "contentful";
 
 export interface TypeRichTextFields {
-    text: EntryFieldTypes.RichText;
     displayName?: EntryFieldTypes.Symbol;
+    title?: EntryFieldTypes.Symbol;
+    text: EntryFieldTypes.RichText;
 }
 
 export type TypeRichTextSkeleton = EntrySkeletonType<TypeRichTextFields, "richText">;
