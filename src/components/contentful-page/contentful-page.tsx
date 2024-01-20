@@ -33,7 +33,7 @@ const Section = ({
     </section>
   ) : (
     <section className="max-w-5xl mx-auto px-4 mt-10 text-sm">
-      <h2 className="font-semibold text-xl text-pink-400">{title}</h2>
+      <h2 className="font-semibold text-xl text-pink-400 mb-1">{title}</h2>
       {children}
     </section>
   );

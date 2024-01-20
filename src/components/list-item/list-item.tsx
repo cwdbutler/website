@@ -24,13 +24,14 @@ const options: Options = {
 export const ListItem = ({ icon, text }: ListItemProps) => {
   const Text = documentToReactComponents(text, options);
   return (
-    <li className="space-x-2 flex items-start">
+    <li className="flex items-start">
+      <span className="sm:hidden mr-2">-</span>
       <img
-        className="flex-shrink-0 w-6 h-6"
+        className="hidden sm:block flex-shrink-0 w-6 h-6 mr-2"
         src={icon.fields.file?.url?.toString()}
         alt={icon.fields.title?.toString()}
       />
-      <div className="pt-1">{Text}</div>
+      {Text}
     </li>
   );
 };
