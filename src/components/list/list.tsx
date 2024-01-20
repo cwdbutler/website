@@ -6,7 +6,7 @@ interface ListProps {
 }
 
 export const List = ({ items }: ListProps) => (
-  <ul className="flex flex-col sm:grid auto-rows-fr gap-2 sm:gap-1 sm:grid-cols-2">
+  <ul className="flex flex-col sm:grid auto-rows-fr gap-2 sm:gap-4 sm:gap-x-8 sm:grid-cols-2">
     {items.map((item, i) => {
       return <ListItem key={i} {...item} />;
     })}
