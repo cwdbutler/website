@@ -2,9 +2,11 @@ import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleC
 import type { TypeHeroSkeleton } from "./TypeHero";
 import type { TypeListSkeleton } from "./TypeList";
 import type { TypeRichTextSkeleton } from "./TypeRichText";
+import type { TypeSeoMetadataSkeleton } from "./TypeSeoMetadata";
 
 export interface TypePageFields {
     slug: EntryFieldTypes.Symbol;
+    seoMetadata: EntryFieldTypes.EntryLink<TypeSeoMetadataSkeleton>;
     sections: EntryFieldTypes.Array<EntryFieldTypes.EntryLink<TypeHeroSkeleton | TypeListSkeleton | TypeRichTextSkeleton>>;
 }
 

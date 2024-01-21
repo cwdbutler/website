@@ -11,7 +11,7 @@ const page = await contentfulClient.getEntry<TypePageSkeleton>(
 );
 
 const {
-  fields: { sections },
+  fields: { seoMetadata, sections },
 } = page;
 ---
 
@@ -32,10 +32,14 @@ const {
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href={seoMetadata?.fields.favicon?.fields.file?.url}
+    />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Conor Butler | Softare Developer | London, UK</title>
+    <title>{seoMetadata?.fields.title}</title>
   </head>
   <body>
     <ContentfulPage sections={sections} />

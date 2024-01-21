@@ -10,3 +10,5 @@ export { isTypePage } from "./TypePage";
 export type { TypePage, TypePageFields, TypePageSkeleton } from "./TypePage";
 export { isTypeRichText } from "./TypeRichText";
 export type { TypeRichText, TypeRichTextFields, TypeRichTextSkeleton } from "./TypeRichText";
+export { isTypeSeoMetadata } from "./TypeSeoMetadata";
+export type { TypeSeoMetadata, TypeSeoMetadataFields, TypeSeoMetadataSkeleton } from "./TypeSeoMetadata";
