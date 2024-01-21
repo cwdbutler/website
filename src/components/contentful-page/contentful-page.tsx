@@ -33,7 +33,9 @@ const Section = ({ children, type, title }: SectionProps) => {
       );
     case "FOOTER":
       return (
-        <footer className="text-center text-xs mt-20 mb-4">{children}</footer>
+        <footer className="text-center text-xs mt-20 mb-4 px-4">
+          {children}
+        </footer>
       );
     default:
       return (
