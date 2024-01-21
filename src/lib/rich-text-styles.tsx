@@ -1,4 +1,4 @@
-import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import type { Options } from "@contentful/rich-text-react-renderer";
 
 export const options: Options = {
@@ -18,7 +18,8 @@ export const options: Options = {
     },
   },
   renderMark: {
-    [MARKS.UNDERLINE]: (text) => {
+    // can't use the MARKS enum here due to this issue: https://github.com/contentful/rich-text/issues/395
+    ["underline"]: (text) => {
       return (
         <span className="underline decoration-green-300 underline-offset-4">
           {text}
