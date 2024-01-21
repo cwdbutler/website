@@ -19,9 +19,9 @@ const isTypeRichText = (
 export const ListItem = ({ icon: { url, title }, text }: ListItemProps) => {
   return (
     <li className="flex items-start">
-      <span className="sm:hidden mr-2">-</span>
+      <span className="mr-2 sm:hidden">-</span>
       <img
-        className="hidden sm:block flex-shrink-0 w-6 h-6 mr-2"
+        className="mr-2 hidden h-6 w-6 flex-shrink-0 sm:block"
         src={url}
         alt={title as string}
       />

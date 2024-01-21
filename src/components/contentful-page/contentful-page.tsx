@@ -26,21 +26,21 @@ const Section = ({ children, type, title }: SectionProps) => {
     case "HERO":
       return (
         <section className="bg-gradient-to-b from-gray-900">
-          <div className="pt-16 sm:pt-32 sm:mb-20 max-w-2xl mx-auto px-4">
+          <div className="mx-auto max-w-2xl px-4 pt-16 sm:mb-20 sm:pt-32">
             {children}
           </div>
         </section>
       );
     case "FOOTER":
       return (
-        <footer className="text-center text-xs mt-20 mb-4 px-4">
+        <footer className="mb-4 mt-20 px-4 text-center text-xs">
           {children}
         </footer>
       );
     default:
       return (
-        <section className="max-w-5xl mx-auto px-4 mt-10 text-sm">
-          <h2 className="font-semibold text-xl text-pink-400 mb-2">{title}</h2>
+        <section className="mx-auto mt-10 max-w-5xl px-4 text-sm">
+          <h2 className="mb-2 text-xl font-semibold text-pink-400">{title}</h2>
           {children}
         </section>
       );

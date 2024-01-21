@@ -10,7 +10,7 @@ export const options: Options = {
       return (
         <a
           href={node.data.uri}
-          className="text-cyan-600 hover:text-cyan-300 transition-colors duration-300"
+          className="text-cyan-600 transition-colors duration-300 hover:text-cyan-300"
         >
           {children}
         </a>
@@ -20,7 +20,7 @@ export const options: Options = {
   renderMark: {
     [MARKS.UNDERLINE]: (text) => {
       return (
-        <span className="underline underline-offset-4 decoration-green-300">
+        <span className="underline decoration-green-300 underline-offset-4">
           {text}
         </span>
       );
