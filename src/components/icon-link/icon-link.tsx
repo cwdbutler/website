@@ -23,7 +23,7 @@ export const IconLink = ({
       <img
         src={iconUrl}
         alt={iconLabel}
-        className="mb-1 size-10 transition duration-300 ease-in-out [filter:invert(87%)_sepia(3%)_saturate(3080%)_hue-rotate(188deg)_brightness(50%)_contrast(78%)] group-hover:[filter:invert(87%)_sepia(3%)_saturate(3080%)_hue-rotate(188deg)_brightness(88%)_contrast(78%)] sm:mb-0 sm:mr-1 sm:size-6"
+        className="mb-1 size-10 select-none transition duration-300 ease-in-out [filter:invert(87%)_sepia(3%)_saturate(3080%)_hue-rotate(188deg)_brightness(50%)_contrast(78%)] group-hover:[filter:invert(87%)_sepia(3%)_saturate(3080%)_hue-rotate(188deg)_brightness(88%)_contrast(78%)] sm:mb-0 sm:mr-1 sm:size-6"
       />
       {text}
     </a>

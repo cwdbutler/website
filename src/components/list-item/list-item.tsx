@@ -21,7 +21,7 @@ export const ListItem = ({ icon: { url, title }, text }: ListItemProps) => {
     <li className="flex items-start">
       <span className="mr-2 sm:hidden">-</span>
       <img
-        className="mr-2 hidden h-6 w-6 flex-shrink-0 sm:block"
+        className="mr-2 hidden h-6 w-6 flex-shrink-0 select-none sm:block"
         src={url}
         alt={title as string}
       />
