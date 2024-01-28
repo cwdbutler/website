@@ -25,7 +25,6 @@ const {
       font-family: "Fira Code Variable", "Roboto Mono", Menlo, Monaco, Courier,
         monospace;
       background-color: #2e343b;
-      color: #aab6cc;
     }
   }
 </style>
@@ -41,7 +40,7 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{seoMetadata?.fields.title}</title>
   </head>
-  <body>
+  <body class="text-slate-400">
     <ContentfulPage sections={sections} />
   </body>
 </html>

@@ -10,7 +10,7 @@ export const options: Options = {
       return (
         <a
           href={node.data.uri}
-          className="text-cyan-600 transition-colors duration-300 hover:text-cyan-300"
+          className="underline decoration-slate-400 underline-offset-4 transition-colors duration-300 hover:text-slate-200 hover:decoration-slate-200 *:hover:text-slate-200"
           target="_blank"
         >
           {children}
@@ -20,9 +20,9 @@ export const options: Options = {
   },
   renderMark: {
     // can't use the MARKS enum here due to this issue: https://github.com/contentful/rich-text/issues/395
-    ["underline"]: (text) => {
+    ["bold"]: (text) => {
       return (
-        <span className="underline decoration-green-300 underline-offset-4">
+        <span className="font-semibold text-emerald-300 transition-colors">
           {text}
         </span>
       );
