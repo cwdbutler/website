@@ -23,12 +23,12 @@ export const Hero = ({ title, subtitle, links }: HeroProps) => {
           <Fragment key={linkProps.text}>
             <li className="flex">
               <IconLink {...linkProps} key={linkProps.text} isNewTab />
+              {index !== links.length - 1 && (
+                <span className="ml-2 select-none text-lg opacity-0 transition-all ease-in-out sm:opacity-100">
+                  /
+                </span>
+              )}
             </li>
-            {index !== links.length - 1 && (
-              <span className="text-lg opacity-0 transition-all ease-in-out sm:opacity-100">
-                /
-              </span>
-            )}
           </Fragment>
         ))}
       </ul>
