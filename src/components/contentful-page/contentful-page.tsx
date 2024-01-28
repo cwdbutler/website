@@ -40,7 +40,7 @@ const Section = ({ children, type, title }: SectionProps) => {
     default:
       return (
         <section className="mx-auto mt-10 max-w-5xl px-4 text-sm">
-          <h2 className="mb-2 text-xl font-semibold text-cyan-400 selection:bg-cyan-400 selection:text-white">
+          <h2 className="mb-2 text-xl font-semibold text-pink-400 selection:bg-pink-400 selection:text-white">
             {title}
           </h2>
           {children}
