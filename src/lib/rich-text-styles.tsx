@@ -11,6 +11,7 @@ export const options: Options = {
         <a
           href={node.data.uri}
           className="text-cyan-600 transition-colors duration-300 hover:text-cyan-300"
+          target="_blank"
         >
           {children}
         </a>
