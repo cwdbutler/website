@@ -8,16 +8,15 @@ export interface IconLinkProps {
 
 export const IconLink = ({
   iconUrl,
-  iconLabel,
   href,
   text,
   isNewTab,
+  iconLabel,
 }: IconLinkProps) => {
   return (
     <a
       href={href}
       target={isNewTab ? "_blank" : undefined}
-      aria-label={text}
       className="group flex flex-col items-center font-sans text-xs font-medium text-[#6B7380] transition-all duration-300 ease-in-out hover:text-inherit sm:flex-row sm:text-xl"
     >
       <img
