@@ -22,7 +22,7 @@ export const options: Options = {
     // can't use the MARKS enum here due to this issue: https://github.com/contentful/rich-text/issues/395
     ["bold"]: (text) => {
       return (
-        <span className="font-semibold text-emerald-300 transition-colors">
+        <span className="font-semibold text-emerald-300 transition-colors selection:bg-emerald-400 selection:text-white">
           {text}
         </span>
       );
