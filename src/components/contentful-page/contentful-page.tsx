@@ -25,7 +25,7 @@ const Section = ({ children, type, title }: SectionProps) => {
   switch (type) {
     case "HERO":
       return (
-        <section className="bg-gradient-to-b from-gray-900">
+        <section className="bg-gradient-to-b from-[#171D23]">
           <div className="mx-auto max-w-2xl px-4 pt-16 sm:mb-20 sm:pt-32">
             {children}
           </div>
