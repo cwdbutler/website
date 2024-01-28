@@ -8,7 +8,4 @@ jobs:
     steps:
       - name: Rebuild image
         run: |
-          $HOME/${{ secrets.CONTENTFUL_REBUILD_SCRIPT_PATH }}
-      - name: Run deploy script
-        run: |
-          $HOME/${{ secrets.DEPLOY_SCRIPT_PATH }}
+          $HOME/${{ secrets.CONTENTFUL_SCRIPT_PATH }}
