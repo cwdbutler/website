@@ -1,9 +1,14 @@
 ---
 import { ContentfulPage } from "../components/contentful-page";
 import { contentfulClient } from "../lib/contentful";
-import type { TypePageSkeleton } from "../types/contentful";
+import {
+  isTypeHero,
+  type TypePageSkeleton,
+  TypeHeroSkeleton,
+} from "../types/contentful";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/fira-code";
+import type { Entry } from "contentful";
 
 const page = await contentfulClient.getEntry<TypePageSkeleton>(
   "1GaXnCzWwz8gVnTNWQcB4I",
@@ -13,6 +18,13 @@ const page = await contentfulClient.getEntry<TypePageSkeleton>(
 const {
   fields: { seoMetadata, sections },
 } = page;
+
+const og = seoMetadata?.fields.openGraph;
+
+const hero = sections.find((section) =>
+  isTypeHero(section!),
+) as Entry<TypeHeroSkeleton>;
+const heroSubtitle = hero?.fields.subtitle as string;
 ---
 
 <html lang="en" class="bg-[#2e343b] font-mono">
@@ -25,6 +37,22 @@ const {
     />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content={seoMetadata?.fields.description || heroSubtitle}
+    />
+
+    <meta property="og:title" content={og?.fields.title} />
+    <meta
+      property="og:description"
+      content={og?.fields.description || heroSubtitle}
+    />
+    <meta property="og:image" content={og?.fields.image?.fields.file?.url} />
+    <meta property="og:url" content={og?.fields.url} />
+    <meta property="og:locale" content="en_GB" />
+
+    <meta name="twitter:image" content={og?.fields.image?.fields.file?.url} />
+    <meta name="twitter:card" content="summary_large_image" />
     <title>{seoMetadata?.fields.title}</title>
   </head>
   <body class="text-slate-400 selection:bg-slate-400 selection:text-white">

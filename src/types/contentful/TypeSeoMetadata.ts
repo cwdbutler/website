@@ -1,8 +1,11 @@
 import type { ChainModifiers, Entry, EntryFieldTypes, EntrySkeletonType, LocaleCode } from "contentful";
+import type { TypeOpenGraphSkeleton } from "./TypeOpenGraph";
 
 export interface TypeSeoMetadataFields {
     title: EntryFieldTypes.Symbol;
+    description?: EntryFieldTypes.Symbol;
     favicon: EntryFieldTypes.AssetLink;
+    openGraph: EntryFieldTypes.EntryLink<TypeOpenGraphSkeleton>;
 }
 
 export type TypeSeoMetadataSkeleton = EntrySkeletonType<TypeSeoMetadataFields, "seoMetadata">;

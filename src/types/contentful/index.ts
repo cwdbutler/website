@@ -6,6 +6,8 @@ export { isTypeList } from "./TypeList";
 export type { TypeList, TypeListFields, TypeListSkeleton } from "./TypeList";
 export { isTypeListItem } from "./TypeListItem";
 export type { TypeListItem, TypeListItemFields, TypeListItemSkeleton } from "./TypeListItem";
+export { isTypeOpenGraph } from "./TypeOpenGraph";
+export type { TypeOpenGraph, TypeOpenGraphFields, TypeOpenGraphSkeleton } from "./TypeOpenGraph";
 export { isTypePage } from "./TypePage";
 export type { TypePage, TypePageFields, TypePageSkeleton } from "./TypePage";
 export { isTypeRichText } from "./TypeRichText";
