@@ -6,6 +6,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        mono: [
+          "Fira Code Variable",
+          "Roboto Mono",
+          ...defaultTheme.fontFamily.mono,
+        ],
         sans: ["InterVariable", "Inter", ...defaultTheme.fontFamily.sans],
       },
       animation: {
