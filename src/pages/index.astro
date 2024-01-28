@@ -51,6 +51,11 @@ const heroSubtitle = hero?.fields.subtitle as string;
     <meta property="og:url" content={og?.fields.url} />
     <meta property="og:locale" content="en_GB" />
 
+    <meta name="twitter:title" content={og?.fields.title} />
+    <meta
+      name="twitter:description"
+      content={og?.fields.description || heroSubtitle}
+    />
     <meta name="twitter:image" content={og?.fields.image?.fields.file?.url} />
     <meta name="twitter:card" content="summary_large_image" />
     <title>{seoMetadata?.fields.title}</title>
