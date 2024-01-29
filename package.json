@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^2.3.2",
+    "@astrojs/sitemap": "^3.0.5",
     "@astrojs/tailwind": "^5.1.0",
     "@contentful/rich-text-react-renderer": "^15.19.0",
     "@fontsource-variable/fira-code": "^5.0.16",
