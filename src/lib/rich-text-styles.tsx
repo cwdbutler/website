@@ -10,7 +10,7 @@ export const options: Options = {
       return (
         <a
           href={node.data.uri}
-          className="underline decoration-slate-400 underline-offset-4 transition-colors duration-300 hover:text-slate-200 hover:decoration-slate-200 *:hover:text-slate-200"
+          className="underline decoration-slate-400 underline-offset-4 transition-colors duration-300 hover:text-slate-200 hover:decoration-slate-200 *:hover:text-slate-200 focus:text-slate-200 focus:decoration-slate-200"
           target="_blank"
         >
           {children}
